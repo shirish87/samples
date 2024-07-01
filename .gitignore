@@ -1,0 +1,16 @@
+build/
+dist/
+*.jsfdia
+*.asc
+*.tern-project
+bin
+target
+.settings
+.project
+.classpath
+rebel.xml
+*.iml
+.idea
+node_modules/
+npm-debug.log
+
