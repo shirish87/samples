@@ -13,4 +13,7 @@ rebel.xml
 .idea
 node_modules/
 npm-debug.log
-
+__pycache__
+*.log
+log/
+.DS_Store
