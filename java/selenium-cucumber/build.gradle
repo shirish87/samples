@@ -1,0 +1,28 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.seleniumhq.selenium:selenium-java:${property('selenium.version')}"
+    testImplementation "io.cucumber:cucumber-java:${property('cucumber.version')}"
+    testImplementation "io.cucumber:cucumber-core:${property('cucumber.version')}"
+    testImplementation "com.browserstack:browserstack-java-sdk:${property('browserstack.sdk.version')}"
+}
+
+tasks.register('cucumber', JavaExec) { task ->
+    doFirst {
+        configurations.testRuntimeClasspath
+                ?.find { it.name.startsWith("browserstack-java-sdk") }
+                ?.with { task.jvmArgs += "-javaagent:$it" }
+    }
+
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'io.cucumber.core.cli.Main'
+    args = ['--plugin', 'pretty', '--glue', 'com.browserstack.steps', 'src/test/resources/features']
+}
+
+test {
+    dependsOn cucumber
+}

@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.seleniumhq.selenium:selenium-java:${property('selenium.version')}"
+    testImplementation "com.browserstack:browserstack-java-sdk:${property('browserstack.sdk.version')}"
+}
+
+tasks.register('main', JavaExec) { task ->
+    doFirst {
+        configurations.testRuntimeClasspath
+                ?.find { it.name.startsWith("browserstack-java-sdk") }
+                ?.with { task.jvmArgs += "-javaagent:$it" }
+    }
+
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.browserstack.Test'
+}
+
+test {
+    dependsOn main
+}

@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "com.microsoft.playwright:playwright:${property('playwright.version')}"
+    testImplementation "org.testng:testng:${property('testng.version')}"
+    testImplementation "io.cucumber:cucumber-java:${property('cucumber.version')}"
+    testImplementation "io.cucumber:cucumber-testng:${property('cucumber.version')}"
+    testImplementation "com.browserstack:browserstack-java-sdk:${property('browserstack.sdk.version')}"
+}
+
+tasks.withType(Test).configureEach { task ->
+    doFirst {
+        configurations.testRuntimeClasspath
+                ?.find { it.name.startsWith("browserstack-java-sdk") }
+                ?.with { task.jvmArgs += "-javaagent:$it" }
+    }
+}
+
+test {
+    useTestNG()
+}

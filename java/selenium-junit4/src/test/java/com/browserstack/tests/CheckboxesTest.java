@@ -1,0 +1,54 @@
+package com.browserstack.tests;
+
+import com.browserstack.helpers.DriverProvider;
+import com.browserstack.pages.CheckboxesPage;
+import com.browserstack.pages.HomePage;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class CheckboxesTest {
+
+    private WebDriver driver;
+    private HomePage homePage;
+
+    @Before
+    public void setUp() {
+        driver = DriverProvider.getDriver();
+        homePage = new HomePage(driver);
+    }
+
+    @Test
+    public void testCheckboxes() {
+        homePage.clickCheckboxes();
+        CheckboxesPage checkboxesPage = new CheckboxesPage(driver);
+
+        // Check the first checkbox
+        checkboxesPage.checkCheckbox1();
+        assertTrue(checkboxesPage.isCheckbox1Checked());
+
+        // Uncheck the first checkbox
+        checkboxesPage.uncheckCheckbox1();
+        assertFalse(checkboxesPage.isCheckbox1Checked());
+
+        // Check the second checkbox
+        checkboxesPage.checkCheckbox2();
+        assertTrue(checkboxesPage.isCheckbox2Checked());
+
+        // Uncheck the second checkbox
+        checkboxesPage.uncheckCheckbox2();
+        assertFalse(checkboxesPage.isCheckbox2Checked());
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}
+

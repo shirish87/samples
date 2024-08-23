@@ -1,0 +1,25 @@
+userName: BROWSERSTACK_USERNAME
+accessKey: BROWSERSTACK_ACCESS_KEY
+projectName: sdk-samples
+buildName: sdk-samples-java
+
+framework: vanilla
+
+testObservability: true
+browserstackAutomation: true
+browserstackLocal: false
+
+debug: true
+logLevel: debug
+
+parallelsPerPlatform: 1
+
+platforms:
+  - os: Windows
+    osVersion: 10
+    browserName: Edge
+    browserVersion: latest
+  - os: OS X
+    osVersion: Big Sur
+    browserName: Chrome
+    browserVersion: latest
