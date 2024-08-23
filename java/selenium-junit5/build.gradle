@@ -1,4 +1,8 @@
-apply plugin: 'java'
+
+plugins {
+    id "java"
+    id "com.browserstack.gradle-sdk" version "1.0.0"
+}
 
 repositories {
     mavenCentral()

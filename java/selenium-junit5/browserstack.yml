@@ -12,8 +12,6 @@ browserstackLocal: false
 debug: true
 logLevel: debug
 
-parallelsPerPlatform: 1
-
 platforms:
   - os: Windows
     osVersion: 10
