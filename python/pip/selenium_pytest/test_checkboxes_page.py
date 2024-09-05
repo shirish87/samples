@@ -17,3 +17,4 @@ def driver():
 def test_checkboxes_page(driver):
     page = CheckboxesPage(driver)
     page.run_test(assert_equals)
+    driver.save_screenshot('/tmp/test_checkboxes_page.png')

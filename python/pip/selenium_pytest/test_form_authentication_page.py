@@ -14,6 +14,7 @@ def driver():
     yield driver
     driver.quit()
 
-def test_dropdown_page(driver):
+def test_form_authentication_page(driver):
     page = FormAuthenticationPage(driver)
     page.run_test(assert_equals)
+    driver.save_screenshot('/tmp/test_form_authentication_page.png')

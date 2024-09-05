@@ -14,6 +14,7 @@ def driver():
     yield driver
     driver.quit()
 
-def test_dropdown_page(driver):
+def test_drag_and_drop_page(driver):
     page = DragAndDropPage(driver)
     page.run_test(assert_equals)
+    driver.save_screenshot('/tmp/test_drag_and_drop_page.png')

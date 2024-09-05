@@ -17,3 +17,4 @@ def driver():
 def test_dropdown_page(driver):
     page = DropdownPage(driver)
     page.run_test(assert_equals)
+    driver.save_screenshot('/tmp/test_dropdown_page.png')

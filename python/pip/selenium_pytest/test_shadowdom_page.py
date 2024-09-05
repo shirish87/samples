@@ -14,6 +14,7 @@ def driver():
     yield driver
     driver.quit()
 
-def test_dropdown_page(driver):
+def test_shadowdom_page(driver):
     page = ShadowDOMPage(driver)
     page.run_test(assert_equals)
+    driver.save_screenshot('/tmp/test_shadowdom_page.png')
