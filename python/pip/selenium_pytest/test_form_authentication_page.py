@@ -1,8 +1,8 @@
 import pytest
 from selenium import webdriver
-from pip.common_selenium.home_page import HomePage
-from pip.common_selenium.form_authentication_page import FormAuthenticationPage
-from pip.common import assert_equals
+from ..common_selenium.home_page import HomePage
+from ..common_selenium.form_authentication_page import FormAuthenticationPage
+from ..common import assert_equals
 
 
 @pytest.fixture

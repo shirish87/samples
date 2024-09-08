@@ -1,8 +1,8 @@
 import pytest
 from selenium import webdriver
-from pip.common_selenium.home_page import HomePage
-from pip.common_selenium.checkboxes_page import CheckboxesPage
-from pip.common import assert_equals
+from ..common_selenium.home_page import HomePage
+from ..common_selenium.checkboxes_page import CheckboxesPage
+from ..common import assert_equals
 
 
 @pytest.fixture

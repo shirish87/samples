@@ -1,8 +1,8 @@
 import pytest
 from selenium import webdriver
-from pip.common_selenium.home_page import HomePage
-from pip.common_selenium.dropdown_page import DropdownPage
-from pip.common import assert_equals
+from ..common_selenium.home_page import HomePage
+from ..common_selenium.dropdown_page import DropdownPage
+from ..common import assert_equals
 
 
 @pytest.fixture

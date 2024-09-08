@@ -1,8 +1,8 @@
 import pytest
 from selenium import webdriver
-from pip.common_selenium.home_page import HomePage
-from pip.common_selenium.shadowdom_page import ShadowDOMPage
-from pip.common import assert_equals
+from ..common_selenium.home_page import HomePage
+from ..common_selenium.shadowdom_page import ShadowDOMPage
+from ..common import assert_equals
 
 
 @pytest.fixture

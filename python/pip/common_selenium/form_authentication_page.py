@@ -1,4 +1,4 @@
-from pip.common_selenium.base_page import BasePage
+from .base_page import BasePage
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.by import *
 from selenium.webdriver.support.select import Select
