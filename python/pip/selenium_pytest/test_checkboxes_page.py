@@ -1,3 +1,4 @@
+import os
 import pytest
 from selenium import webdriver
 from ..common_selenium.home_page import HomePage
@@ -17,4 +18,6 @@ def driver():
 def test_checkboxes_page(driver):
     page = CheckboxesPage(driver)
     page.run_test(assert_equals)
-    driver.save_screenshot('/tmp/test_checkboxes_page.png')
+
+    if os.environ.get("SCREENSHOT", "0") == "1":
+        driver.save_screenshot('/tmp/test_checkboxes_page.png')
